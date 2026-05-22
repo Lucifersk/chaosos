@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChaosOS
 
-## Getting Started
+ChaosOS is an autonomous multi-agent AI operating system designed to survive real-world chaos.
 
-First, run the development server:
+Built for:
+Agents Under Pressure — 48 Hour Hackathon with HydraDB ⚡
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🧠 Persistent Memory System
+- ⚡ Adaptive Planning Agents
+- 🚨 Failure Recovery Engine
+- 🔎 Multi-Agent Coordination
+- ⏳ Chaos Simulation
+- 🔄 Task Continuation
+- 📊 Live Activity Timeline
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- TypeScript
+- TailwindCSS
+- Groq API
+- Framer Motion
 
-## Learn More
+## Core Concept
 
-To learn more about Next.js, take a look at the following resources:
+Most AI agents fail under pressure.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ChaosOS is designed to:
+- recover from failures
+- adapt to changing goals
+- remember context
+- continue unfinished workflows
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Demo Scenarios
 
-## Deploy on Vercel
+- API timeout recovery
+- interrupted workflows
+- adaptive goal switching
+- persistent task continuation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Vision
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+An AI Operating System that survives chaos instead of crashing.
