@@ -2,6 +2,7 @@
 import { agents } from "@/agents/agents";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import Image from "next/image";
 
 import {
   useEffect,
@@ -257,23 +258,35 @@ export default function Home() {
     return (
       <main className="min-h-screen bg-black text-green-400 flex items-center justify-center font-mono">
 
-        <div className="space-y-4 text-lg">
+        <div className="space-y-6 text-lg flex flex-col items-center">
 
-          {bootMessages.map((msg, index) => (
-            <div
-              key={index}
-              className="animate-pulse"
-            >
-              {msg}
-            </div>
-          ))}
+          <Image
+            src="/logo.png"
+            alt="ChaosOS Logo"
+            width={220}
+            height={220}
+            className="animate-pulse drop-shadow-[0_0_35px_rgba(0,140,255,0.7)]"
+          />
+
+          <div className="space-y-3 text-center">
+
+            {bootMessages.map((msg, index) => (
+              <div
+                key={index}
+                className="animate-pulse"
+              >
+                {msg}
+              </div>
+            ))}
+
+          </div>
 
         </div>
 
       </main>
     );
   }
-
+  
   if (accessGranted) {
     return (
       <main className="min-h-screen bg-black text-green-400 flex items-center justify-center font-mono">
