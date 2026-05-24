@@ -12,6 +12,8 @@ import {
   MessageSquare,
   Brain,
   AlertTriangle,
+  Menu,
+  X,
 } from "lucide-react";
 
 export default function Home() {
@@ -30,6 +32,9 @@ export default function Home() {
 
   const [currentTime, setCurrentTime] =
     useState("");
+
+  const [mobileMenu, setMobileMenu] =
+    useState(false);
 
   const [systemLogs, setSystemLogs] =
     useState<string[]>([
@@ -290,12 +295,34 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white flex relative overflow-hidden">
+    <main className="min-h-screen bg-[#0a0a0a] text-white flex flex-col md:flex-row relative overflow-hidden">
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,140,255,0.15),transparent_40%)] pointer-events-none" />
-
+      {mobileMenu && (
+        <div
+          onClick={() =>
+            setMobileMenu(false)
+          }
+          className="fixed inset-0 bg-black/60 z-40 md:hidden"
+        />
+      )}
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/10 p-4 relative z-10">
+      <aside
+        className={`
+    overflow-y-auto
+    fixed md:relative z-50 md:z-10
+    top-0 left-0 h-full
+    bg-[#0a0a0a]
+    w-64 border-r border-white/10 p-4
+    transform transition-transform duration-300
+
+    ${mobileMenu
+            ? "translate-x-0"
+            : "-translate-x-full"}
+
+    md:translate-x-0
+  `}
+      >
         <h1 className="text-2xl font-bold mb-8">
           ChaosOS
         </h1>
@@ -305,6 +332,9 @@ export default function Home() {
           {agents.map((agent, index) => (
             <div
               key={index}
+              onClick={() =>
+                setMobileMenu(false)
+              }
               className="bg-white/5 p-3 rounded-xl"
             >
               <h3 className="font-semibold">
@@ -322,10 +352,23 @@ export default function Home() {
       </aside>
 
       {/* Chat Section */}
-      <section className="flex-1 flex flex-col relative z-10 h-screen">
+      <section className="flex-1 flex flex-col relative z-10 h-screen w-full">
 
         <div className="border-b border-white/10 p-4">
           <div className="flex items-center justify-between">
+
+            <button
+              onClick={() =>
+                setMobileMenu(!mobileMenu)
+              }
+              className="md:hidden ml-4"
+            >
+              {mobileMenu ? (
+                <X size={22} />
+              ) : (
+                <Menu size={22} />
+              )}
+            </button>
 
             <h2 className="text-xl font-semibold">
               ChaosOS Terminal v1.0
@@ -479,7 +522,7 @@ export default function Home() {
         </div>
 
         {/* Input */}
-        <div className="border-t border-white/10 p-4 flex items-center gap-3 font-mono sticky bottom-0 bg-[#0a0a0a]">
+        <div className="border-t border-white/10 p-3 md:p-4 flex items-center gap-2 md:gap-3 font-mono sticky bottom-0 bg-[#0a0a0a]">
 
           <span className="text-green-400 whitespace-nowrap">
             chaosos@system:~$
@@ -497,7 +540,7 @@ export default function Home() {
                 sendMessage();
               }
             }}
-            className="flex-1 bg-transparent border-none outline-none text-white placeholder:text-white/30"
+            className="flex-1 bg-transparent border-none outline-none text-sm md:text-base text-white placeholder:text-white/30"
           />
 
           <button
@@ -512,7 +555,7 @@ export default function Home() {
       </section>
 
       {/* Command History */}
-      <aside className="w-64 border-l border-white/10 p-4 relative z-10">
+      <aside className="hidden lg:block w-64 border-l border-white/10 p-4 relative z-10">
 
         <h2 className="text-lg font-semibold mb-4">
           Command History
@@ -562,7 +605,7 @@ export default function Home() {
       </aside>
 
       {/* Activity */}
-      <aside className="w-80 border-l border-white/10 p-4 relative z-10">
+      <aside className="hidden lg:block w-80 border-l border-white/10 p-4 relative z-10">
 
         <h2 className="text-lg font-semibold mb-4">
           Agent Activity
