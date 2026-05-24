@@ -153,17 +153,17 @@ export default function Home() {
     // Activity: Memory
     setActivities((prev) => [
       "🧠 Retrieving Memory",
-      ...prev,
+      ...prev.slice(0, 5),
     ]);
 
     setActivities((prev) => [
       "⚡ Planner Agent Activated",
-      ...prev,
+      ...prev.slice(0, 5),
     ]);
 
     setActivities((prev) => [
       "🔎 Research Agent Running",
-      ...prev,
+      ...prev.slice(0, 5),
     ]);
 
     try {
@@ -178,27 +178,27 @@ export default function Home() {
       // Activity: AI Thinking
       setActivities((prev) => [
         "⚡ AI Processing Request",
-        ...prev,
+        ...prev.slice(0, 5),
       ]);
 
       setTimeout(() => {
         setActivities((prev) => [
           "🧠 Memory Agent analyzing context",
-          ...prev,
+          ...prev.slice(0, 5),
         ]);
       }, 600);
 
       setTimeout(() => {
         setActivities((prev) => [
           "🔎 Research Agent gathering insights",
-          ...prev,
+          ...prev.slice(0, 5),
         ]);
       }, 1200);
 
       setTimeout(() => {
         setActivities((prev) => [
           "⚡ Planner Agent generating execution roadmap",
-          ...prev,
+          ...prev.slice(0, 5),
         ]);
       }, 1800);
 
@@ -219,12 +219,12 @@ export default function Home() {
       ) {
         setActivities((prev) => [
           "🚨 Recovery Agent Activated",
-          ...prev,
+          ...prev.slice(0, 5),
         ]);
       } else {
         setActivities((prev) => [
           "✅ Task Completed",
-          ...prev,
+          ...prev.slice(0, 5),
         ]);
       }
 
@@ -232,7 +232,7 @@ export default function Home() {
 
       setActivities((prev) => [
         "🚨 System Error Recovered",
-        ...prev,
+        ...prev.slice(0, 5),
       ]);
 
       setMessages((prev) => [
@@ -568,7 +568,7 @@ export default function Home() {
           Agent Activity
         </h2>
 
-        <div className="space-y-3 text-sm">
+        <div className="space-y-3 text-sm overflow-y-auto max-h-[80vh] pr-1">
 
           {activities.map((activity, index) => (
             <div
