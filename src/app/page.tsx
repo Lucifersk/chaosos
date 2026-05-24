@@ -322,7 +322,7 @@ export default function Home() {
       </aside>
 
       {/* Chat Section */}
-      <section className="flex-1 flex flex-col relative z-10">
+      <section className="flex-1 flex flex-col relative z-10 h-screen">
 
         <div className="border-b border-white/10 p-4">
           <div className="flex items-center justify-between">
@@ -392,7 +392,7 @@ export default function Home() {
 
 
         {/* Messages */}
-        <div className="flex-1 p-6 overflow-y-auto space-y-4">
+        <div className="flex-1 overflow-y-auto p-6 space-y-4 min-h-0">
 
           {messages.map((msg, index) => (
             <motion.div
@@ -479,7 +479,7 @@ export default function Home() {
         </div>
 
         {/* Input */}
-        <div className="border-t border-white/10 p-4 flex items-center gap-3 font-mono">
+        <div className="border-t border-white/10 p-4 flex items-center gap-3 font-mono sticky bottom-0 bg-[#0a0a0a]">
 
           <span className="text-green-400 whitespace-nowrap">
             chaosos@system:~$
